@@ -26,11 +26,12 @@ export default function TrendingNews() {
       {news && news.length ? (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {news.map((news, index) => (
-            <View key={index}>
+            <View key={index} style={{margin: 10}}>
               <Image
                 source={{uri: `${news.urlToImage}`}}
                 style={{height: 200, width: 200, borderRadius: 10}}
               />
+              <Text style={{width: 200}}>{news.title}</Text>
             </View>
           ))}
         </ScrollView>
