@@ -39,7 +39,13 @@ export default function GetNews(props) {
       {news && news.length && !error ? (
         <ScrollView showsVerticalScrollIndicator={false}>
           {news.map((news, index) => (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity
+              key={index}
+              onPress={() =>
+                props.navigation.navigate('WebView', {
+                  url: news.url,
+                })
+              }>
               <View
                 style={{
                   display: 'flex',
