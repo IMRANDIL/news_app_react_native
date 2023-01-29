@@ -4,7 +4,7 @@ import config from '../../config/config';
 
 export default function HomeScreen() {
   useEffect(() => {
-    console.log(config.API_KEY);
+    // console.log(config.API_KEY);
   }, []);
 
   return (
