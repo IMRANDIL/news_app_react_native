@@ -57,7 +57,7 @@ export default function TrendingNews(props) {
           ))}
         </ScrollView>
       ) : (
-        <ActivityIndicator size={80} color="black" />
+        <ActivityIndicator size={50} color="black" />
       )}
     </View>
   );

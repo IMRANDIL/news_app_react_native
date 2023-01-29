@@ -20,7 +20,7 @@ export default function WebViewComponent(props) {
           width: deviceWidth,
           height: deviceHeight,
         }}>
-        <ActivityIndicator size={80} color="black" />
+        <ActivityIndicator size={50} color="black" />
       </View>
     );
   }

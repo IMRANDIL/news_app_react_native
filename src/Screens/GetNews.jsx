@@ -78,7 +78,7 @@ export default function GetNews(props) {
         </ScrollView>
       ) : (
         <ActivityIndicator
-          size={80}
+          size={50}
           color="black"
           style={{
             width: deviceWidth,

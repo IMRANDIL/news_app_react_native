@@ -12,26 +12,28 @@ export default function Categories(props) {
   ];
 
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-      {categories.map((category, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => props.navigation.navigate('GetNews', {category})}>
-          <View>
-            <Text
-              style={{
-                padding: 10,
-                borderWidth: 1,
-                borderColor: 'black',
-                borderRadius: 10,
-                margin: 10,
-                fontSize: 19,
-              }}>
-              {category}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+    <View>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        {categories.map((category, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => props.navigation.navigate('GetNews', {category})}>
+            <View>
+              <Text
+                style={{
+                  padding: 10,
+                  borderWidth: 1,
+                  borderColor: 'black',
+                  borderRadius: 10,
+                  margin: 10,
+                  fontSize: 19,
+                }}>
+                {category}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
