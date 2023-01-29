@@ -9,6 +9,9 @@ import {
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
 
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
+
 export default function GetNews(props) {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(false);
@@ -32,7 +35,7 @@ export default function GetNews(props) {
   }, [props.route.params.category]);
 
   return (
-    <View>
+    <View style={{alignItems: 'center', marginTop: 10}}>
       {news && news.length && !error ? (
         <ScrollView showsVerticalScrollIndicator={false}>
           {news.map((news, index) => (
@@ -41,11 +44,11 @@ export default function GetNews(props) {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                paddingVertical: 10,
                 backgroundColor: 'white',
                 borderRadius: 10,
                 elevation: 4,
-                margin: 10,
+                width: deviceWidth - 30,
+                marginBottom: 10,
               }}>
               <Image
                 source={
@@ -53,16 +56,30 @@ export default function GetNews(props) {
                     ? {uri: `${news.urlToImage}`}
                     : require('../../assets/noimg.jpg')
                 }
-                style={{height: 200, width: 200, borderRadius: 10}}
+                style={{height: 100, width: 100, borderRadius: 10}}
               />
-              <Text style={{width: 200, textAlign: 'justify'}}>
+              <Text
+                style={{
+                  width: deviceWidth - 130,
+                  textAlign: 'justify',
+                  padding: 10,
+                }}>
                 {news.title}
               </Text>
             </View>
           ))}
         </ScrollView>
       ) : (
-        <ActivityIndicator size={80} color="black" />
+        <ActivityIndicator
+          size={80}
+          color="black"
+          style={{
+            width: deviceWidth,
+            height: deviceHeight,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        />
       )}
     </View>
   );
