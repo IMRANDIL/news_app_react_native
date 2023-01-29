@@ -34,9 +34,19 @@ export default function GetNews(props) {
   return (
     <View>
       {news && news.length && !error ? (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {news.map((news, index) => (
-            <View key={index}>
+            <View
+              key={index}
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                paddingVertical: 10,
+                backgroundColor: 'white',
+                borderRadius: 10,
+                elevation: 4,
+                margin: 10,
+              }}>
               <Image
                 source={
                   news.urlToImage
