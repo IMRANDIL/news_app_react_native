@@ -28,7 +28,11 @@ export default function TrendingNews() {
           {news.map((news, index) => (
             <View key={index} style={{margin: 10}}>
               <Image
-                source={{uri: `${news.urlToImage}`}}
+                source={
+                  news.urlToImage
+                    ? {uri: `${news.urlToImage}`}
+                    : require('../../assets/noimg.jpg')
+                }
                 style={{height: 200, width: 200, borderRadius: 10}}
               />
               <Text style={{width: 200, textAlign: 'justify'}}>
