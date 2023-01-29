@@ -5,7 +5,7 @@ export default function Categories(props) {
   const categories = [
     'Entertainment',
     'Business',
-    'Politics',
+    'Science',
     'Health',
     'Technology',
     'Sports',

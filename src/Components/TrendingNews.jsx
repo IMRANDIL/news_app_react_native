@@ -20,7 +20,7 @@ export default function TrendingNews() {
       .then(resp => resp.json())
       .then(data => {
         setNews(data.articles);
-        console.log(data.articles);
+        // console.log(data.articles);
       })
       .catch(error => {
         setError(true);

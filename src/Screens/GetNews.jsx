@@ -11,17 +11,18 @@ export default function GetNews(props) {
     });
 
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=${config.API_KEY}`,
+      `https://newsapi.org/v2/top-headlines?category=${props.route.params.category}&country=in&apiKey=${config.API_KEY}`,
     )
       .then(resp => resp.json())
       .then(data => {
         setNews(data.articles);
+        console.log(data);
       })
       .catch(error => {
         setError(true);
         console.log(error);
       });
-  }, []);
+  }, [props.route.params.category]);
 
   return (
     <View>
