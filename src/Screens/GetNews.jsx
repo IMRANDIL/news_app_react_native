@@ -1,4 +1,11 @@
-import {View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  ActivityIndicator,
+  ScrollView,
+  Image,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
 
@@ -26,7 +33,27 @@ export default function GetNews(props) {
 
   return (
     <View>
-      <Text>{props.route.params.category}</Text>
+      {news && news.length && !error ? (
+        <ScrollView>
+          {news.map((news, index) => (
+            <View key={index}>
+              <Image
+                source={
+                  news.urlToImage
+                    ? {uri: `${news.urlToImage}`}
+                    : require('../../assets/noimg.jpg')
+                }
+                style={{height: 200, width: 200, borderRadius: 10}}
+              />
+              <Text style={{width: 200, textAlign: 'justify'}}>
+                {news.title}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      ) : (
+        <ActivityIndicator size={80} color="black" />
+      )}
     </View>
   );
 }
