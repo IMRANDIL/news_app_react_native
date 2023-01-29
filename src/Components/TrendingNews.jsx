@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView, ActivityIndicator, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
 
@@ -13,7 +13,7 @@ export default function TrendingNews() {
       .then(resp => resp.json())
       .then(data => {
         setNews(data.articles);
-        console.log(data);
+        console.log(data.articles);
       })
       .catch(error => {
         setError(true);
@@ -23,7 +23,20 @@ export default function TrendingNews() {
 
   return (
     <View>
-      <Text>TrendingNews</Text>
+      {news && news.length ? (
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          {news.map((news, index) => (
+            <View key={index}>
+              <Image
+                source={{uri: `${news.urlToImage}`}}
+                style={{height: 200, width: 200, borderRadius: 10}}
+              />
+            </View>
+          ))}
+        </ScrollView>
+      ) : (
+        <ActivityIndicator size={80} color="black" />
+      )}
     </View>
   );
 }
