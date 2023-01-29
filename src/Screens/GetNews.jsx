@@ -27,7 +27,6 @@ export default function GetNews(props) {
       .then(resp => resp.json())
       .then(data => {
         setNews(data.articles);
-        console.log(data);
       })
       .catch(error => {
         setError(true);
@@ -63,7 +62,7 @@ export default function GetNews(props) {
                   style={{
                     width: deviceWidth - 130,
                     textAlign: 'justify',
-                    padding: 10,
+                    padding: 15,
                   }}>
                   {news.title}
                 </Text>
