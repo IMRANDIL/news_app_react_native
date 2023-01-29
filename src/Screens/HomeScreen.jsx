@@ -1,6 +1,7 @@
 import {View, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import config from '../../config/config';
+import Categories from '../Components/Categories';
 
 export default function HomeScreen() {
   useEffect(() => {
@@ -9,7 +10,7 @@ export default function HomeScreen() {
 
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Categories />
     </View>
   );
 }

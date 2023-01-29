@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 
 export default function Categories() {
@@ -12,8 +12,12 @@ export default function Categories() {
   ];
 
   return (
-    <View>
-      <Text>Categories</Text>
-    </View>
+    <ScrollView horizontal>
+      {categories.map((category, index) => (
+        <View key={index}>
+          <Text>{category}</Text>
+        </View>
+      ))}
+    </ScrollView>
   );
 }
