@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   ScrollView,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
@@ -39,34 +40,35 @@ export default function GetNews(props) {
       {news && news.length && !error ? (
         <ScrollView showsVerticalScrollIndicator={false}>
           {news.map((news, index) => (
-            <View
-              key={index}
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                backgroundColor: 'white',
-                borderRadius: 10,
-                elevation: 4,
-                width: deviceWidth - 30,
-                marginBottom: 10,
-              }}>
-              <Image
-                source={
-                  news.urlToImage
-                    ? {uri: `${news.urlToImage}`}
-                    : require('../../assets/noimg.jpg')
-                }
-                style={{height: 100, width: 100, borderRadius: 10}}
-              />
-              <Text
+            <TouchableOpacity key={index}>
+              <View
                 style={{
-                  width: deviceWidth - 130,
-                  textAlign: 'justify',
-                  padding: 10,
+                  display: 'flex',
+                  flexDirection: 'row',
+                  backgroundColor: 'white',
+                  borderRadius: 10,
+                  elevation: 4,
+                  width: deviceWidth - 30,
+                  marginBottom: 10,
                 }}>
-                {news.title}
-              </Text>
-            </View>
+                <Image
+                  source={
+                    news.urlToImage
+                      ? {uri: `${news.urlToImage}`}
+                      : require('../../assets/noimg.jpg')
+                  }
+                  style={{height: 100, width: 100, borderRadius: 10}}
+                />
+                <Text
+                  style={{
+                    width: deviceWidth - 130,
+                    textAlign: 'justify',
+                    padding: 10,
+                  }}>
+                  {news.title}
+                </Text>
+              </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       ) : (
