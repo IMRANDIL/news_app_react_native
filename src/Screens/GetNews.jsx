@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export default function GetNews() {
+export default function GetNews(props) {
   return (
     <View>
-      <Text>GetNews</Text>
+      <Text>{props.route.params.category}</Text>
     </View>
   );
 }
