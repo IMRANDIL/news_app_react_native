@@ -47,7 +47,7 @@ export default function GetNews(props) {
                   flexDirection: 'row',
                   backgroundColor: 'white',
                   borderRadius: 10,
-                  elevation: 4,
+                  //   elevation: 2,
                   width: deviceWidth - 30,
                   marginBottom: 10,
                 }}>
