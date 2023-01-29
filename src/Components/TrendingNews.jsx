@@ -23,7 +23,7 @@ export default function TrendingNews() {
 
   return (
     <View>
-      {news && news.length ? (
+      {news && news.length && !error ? (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {news.map((news, index) => (
             <View key={index} style={{margin: 10}}>
