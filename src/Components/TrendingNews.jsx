@@ -4,6 +4,7 @@ import config from '../../config/config';
 
 export default function TrendingNews() {
   const [news, setNews] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -11,9 +12,11 @@ export default function TrendingNews() {
     )
       .then(resp => resp.json())
       .then(data => {
+        setNews(data.articles);
         console.log(data);
       })
       .catch(error => {
+        setError(true);
         console.log(error);
       });
   }, []);
