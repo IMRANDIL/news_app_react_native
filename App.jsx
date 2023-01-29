@@ -13,7 +13,11 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Trending" component={HomeScreen} />
         <Stack.Screen name="GetNews" component={GetNews} />
-        <Stack.Screen name="WebView" component={WebViewComponent} />
+        <Stack.Screen
+          name="WebView"
+          component={WebViewComponent}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
