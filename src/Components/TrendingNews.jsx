@@ -31,7 +31,9 @@ export default function TrendingNews() {
                 source={{uri: `${news.urlToImage}`}}
                 style={{height: 200, width: 200, borderRadius: 10}}
               />
-              <Text style={{width: 200}}>{news.title}</Text>
+              <Text style={{width: 200, textAlign: 'justify'}}>
+                {news.title}
+              </Text>
             </View>
           ))}
         </ScrollView>
