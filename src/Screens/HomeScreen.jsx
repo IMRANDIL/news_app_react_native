@@ -12,7 +12,7 @@ export default function HomeScreen(props) {
   return (
     <View>
       <Categories navigation={props.navigation} />
-      <TrendingNews />
+      <TrendingNews navigation={props.navigation} />
     </View>
   );
 }

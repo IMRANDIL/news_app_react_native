@@ -9,7 +9,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
 
-export default function TrendingNews() {
+export default function TrendingNews(props) {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(false);
 
@@ -33,7 +33,13 @@ export default function TrendingNews() {
       {news && news.length && !error ? (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {news.map((news, index) => (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity
+              key={index}
+              onPress={() =>
+                props.navigation.navigate('WebView', {
+                  url: news.url,
+                })
+              }>
               <View style={{margin: 10}}>
                 <Image
                   source={
