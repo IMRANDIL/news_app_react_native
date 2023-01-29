@@ -1,4 +1,11 @@
-import {View, Text, ScrollView, ActivityIndicator, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  ActivityIndicator,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import config from '../../config/config';
 
@@ -26,19 +33,21 @@ export default function TrendingNews() {
       {news && news.length && !error ? (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {news.map((news, index) => (
-            <View key={index} style={{margin: 10}}>
-              <Image
-                source={
-                  news.urlToImage
-                    ? {uri: `${news.urlToImage}`}
-                    : require('../../assets/noimg.jpg')
-                }
-                style={{height: 200, width: 200, borderRadius: 10}}
-              />
-              <Text style={{width: 200, textAlign: 'justify'}}>
-                {news.title}
-              </Text>
-            </View>
+            <TouchableOpacity key={index}>
+              <View style={{margin: 10}}>
+                <Image
+                  source={
+                    news.urlToImage
+                      ? {uri: `${news.urlToImage}`}
+                      : require('../../assets/noimg.jpg')
+                  }
+                  style={{height: 200, width: 200, borderRadius: 10}}
+                />
+                <Text style={{width: 200, textAlign: 'justify'}}>
+                  {news.title}
+                </Text>
+              </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       ) : (

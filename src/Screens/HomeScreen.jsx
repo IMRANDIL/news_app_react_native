@@ -4,14 +4,14 @@ import config from '../../config/config';
 import Categories from '../Components/Categories';
 import TrendingNews from '../Components/TrendingNews';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   useEffect(() => {
     // console.log(config.API_KEY);
   }, []);
 
   return (
     <View>
-      <Categories />
+      <Categories navigation={props.navigation} />
       <TrendingNews />
     </View>
   );
