@@ -12,10 +12,18 @@ export default function Categories() {
   ];
 
   return (
-    <ScrollView horizontal={true}>
+    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       {categories.map((category, index) => (
         <View key={index}>
-          <Text style={{padding: 10, borderWidth: 1, borderColor: 'black'}}>
+          <Text
+            style={{
+              padding: 10,
+              borderWidth: 1,
+              borderColor: 'black',
+              borderRadius: 10,
+              margin: 10,
+              fontSize: 19,
+            }}>
             {category}
           </Text>
         </View>
